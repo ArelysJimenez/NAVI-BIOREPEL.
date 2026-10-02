@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NAVI-BIOREPEL</title>
+
+<style>
+
+/* =========================
+   COLORES PRINCIPALES
+========================= */
+
+:root{
+    --morado:#5841a5;
+    --morado-oscuro:#44318a;
+    --lila:#dcd2ff;
+    --lila-claro:#f3f0ff;
+    --fondo:#eeeaff;
+    --blanco:#ffffff;
+    --borde:#d4c8f7;
+}
+
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    color:var(--morado-oscuro);
+    background:
+        radial-gradient(circle at 10% 20%, #ddd4ff 0%, transparent 22%),
+        radial-gradient(circle at 90% 80%, #d9ceff 0%, transparent 24%),
+        linear-gradient(135deg,#f5f2ff,#ebe5ff);
+}
+
+
+/* =========================
+   BARRA DE NAVEGACIÓN
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    height:80px;
+
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid #ddd5f5;
+}
+
+.navbar{
+    max-width:1400px;
+    height:100%;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 45px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    color:var(--morado);
+    font-size:27px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.logo-icon{
+    font-size:35px;
+    transform:rotate(-20deg);
+}
+
+.menu{
+    display:flex;
+    gap:38px;
+    height:100%;
+    align-items:center;
+}
+
+.menu a{
+    height:100%;
+
+    display:flex;
+    align-items:center;
+
+    text-decoration:none;
+    color:#66549f;
+
+    font-size:16px;
+    font-weight:600;
+
+    position:relative;
+
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:var(--morado);
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+.menu a::after{
+    content:"";
+
+    position:absolute;
+    bottom:17px;
+    left:0;
+
+    width:0;
+    height:3px;
+
+    background:#6546cf;
+
+    border-radius:10px;
+
+    transition:.3s;
+}
+
+
+/* =========================
+   PORTADA
+========================= */
+
+.hero{
+    min-height:850px;
+
+    position:relative;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+
+    text-align:center;
+
+    padding:55px 25px 70px;
+}
+
+
+/* ADORNOS LATERALES */
+
+.blob-left{
+    position:absolute;
+
+    left:-100px;
+    top:0;
+
+    width:350px;
+    height:430px;
+
+    background:#d8ccff;
+
+    border-radius:0 0 60% 40%;
+
+    opacity:.85;
+}
+
+.blob-right{
+    position:absolute;
+
+    right:-100px;
+    bottom:-30px;
+
+    width:380px;
+    height:350px;
+
+    background:#d9ceff;
+
+    border-radius:60% 0 0 0;
+
+    opacity:.8;
+}
+
+
+/* LÍNEAS DECORATIVAS */
+
+.curve{
+    position:absolute;
+
+    width:420px;
+    height:600px;
+
+    border:3px solid rgba(255,255,255,.8);
+
+    border-radius:50%;
+
+    opacity:.9;
+}
+
+.curve.left{
+    left:-250px;
+    top:-80px;
+    transform:rotate(25deg);
+}
+
+.curve.right{
+    right:-260px;
+    bottom:-150px;
+    transform:rotate(25deg);
+}
+
+
+/* =========================
+   HOJAS
+========================= */
+
+.leaves{
+    position:absolute;
+
+    color:#9b88e3;
+
+    opacity:.65;
+
+    font-size:75px;
+}
+
+.leaves.left{
+    left:15px;
+    bottom:25px;
+
+    transform:rotate(-20deg);
+}
+
+.leaves.right{
+    right:15px;
+    top:0;
+
+    transform:rotate(20deg);
+}
+
+
+/* =========================
+   CONTENIDO PORTADA
+========================= */
+
+.hero-content{
+    position:relative;
+    z-index:5;
+
+    width:100%;
+    max-width:1250px;
+}
+
+.hero h1{
+    color:#563fa3;
+
+    font-size:clamp(45px,6vw,76px);
+
+    line-height:1.05;
+
+    margin-top:15px;
+
+    font-weight:800;
+}
+
+.subtitle{
+    font-family:Georgia,serif;
+
+    font-size:24px;
+
+    line-height:1.45;
+
+    margin:20px auto;
+
+    max-width:850px;
+
+    color:#5e5092;
+}
+
+
+/* =========================
+   MOSQUITO CENTRAL
+========================= */
+
+.mosquito-container{
+    width:270px;
+    height:270px;
+
+    margin:15px auto 5px;
+
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+/* círculo */
+
+.mosquito-circle{
+    width:235px;
+    height:235px;
+
+    border:10px solid #a999e7;
+
+    border-radius:50%;
+
+    position:absolute;
+}
+
+
+/* mosquito */
+
+.mosquito{
+    position:relative;
+
+    width:130px;
+    height:120px;
+
+    z-index:3;
+}
+
+
+/* cuerpo */
+
+.mosquito-body{
+    position:absolute;
+
+    width:25px;
+    height:75px;
+
+    background:#6650b4;
+
+    border-radius:50%;
+
+    left:53px;
+    top:27px;
+}
+
+
+/* cabeza */
+
+.mosquito-head{
+    position:absolute;
+
+    width:25px;
+    height:25px;
+
+    background:#6650b4;
+
+    border-radius:50%;
+
+    left:53px;
+    top:5px;
+}
+
+
+/* alas */
+
+.wing{
+    position:absolute;
+
+    width:65px;
+    height:35px;
+
+    background:#7966c4;
+
+    opacity:.85;
+
+    border-radius:70% 20% 70% 20%;
+}
+
+.wing.left{
+    left:0;
+    top:30px;
+
+    transform:rotate(15deg);
+}
+
+.wing.right{
+    right:0;
+    top:30px;
+
+    transform:rotate(165deg);
+}
+
+
+/* patas */
+
+.leg{
+    position:absolute;
+
+    width:55px;
+    height:3px;
+
+    background:#6650b4;
+
+    transform-origin:left center;
+}
+
+.leg.l1{
+    left:57px;
+    top:50px;
+    transform:rotate(155deg);
+}
+
+.leg.l2{
+    left:57px;
+    top:62px;
+    transform:rotate(175deg);
+}
+
+.leg.l3{
+    left:57px;
+    top:72px;
+    transform:rotate(200deg);
+}
+
+.leg.r1{
+    left:75px;
+    top:50px;
+    transform:rotate(25deg);
+}
+
+.leg.r2{
+    left:75px;
+    top:62px;
+    transform:rotate(5deg);
+}
+
+.leg.r3{
+    left:75px;
+    top:72px;
+    transform:rotate(-20deg);
+}
+
+
+/* ANTENA */
+
+.antenna{
+    position:absolute;
+
+    width:3px;
+    height:25px;
+
+    background:#6650b4;
+
+    top:-17px;
+}
+
+.antenna.a1{
+    left:60px;
+    transform:rotate(-12deg);
+}
+
+.antenna.a2{
+    left:72px;
+    transform:rotate(12deg);
+}
+
+
+/* BARRA PROHIBICIÓN */
+
+.no-symbol{
+    position:absolute;
+
+    width:250px;
+    height:12px;
+
+    background:#9b8ae1;
+
+    transform:rotate(-45deg);
+
+    border-radius:10px;
+
+    z-index:8;
+}
+
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.info-box{
+    width:90%;
+    max-width:1200px;
+
+    margin:0 auto;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    background:rgba(255,255,255,.25);
+
+    border:2px solid #d5caf5;
+
+    border-radius:22px;
+
+    backdrop-filter:blur(10px);
+
+    overflow:hidden;
+}
+
+.info{
+    padding:25px;
+
+    border-right:2px solid #d6ccf4;
+}
+
+.info:last-child{
+    border-right:none;
+}
+
+.info-icon{
+    width:58px;
+    height:58px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#ded6fa;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:28px;
+}
+
+.info h3{
+    margin-top:13px;
+
+    color:#5945a0;
+
+    font-size:17px;
+}
+
+.info p{
+    margin-top:12px;
+
+    font-family:Georgia,serif;
+
+    color:#645594;
+
+    font-size:15px;
+}
+
+
+/* =========================
+   SECCIONES
+========================= */
+
+section.content{
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:100px 35px;
+}
+
+.section-title{
+    color:#725cc0;
+
+    font-size:14px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+}
+
+h2{
+    color:#49368c;
+
+    font-size:48px;
+
+    margin:10px 0 18px;
+}
+
+.description{
+    max-width:800px;
+
+    font-family:Georgia,serif;
+
+    font-size:18px;
+
+    color:#5d527d;
+
+    margin-bottom:35px;
+}
+
+
+/* =========================
+   TARJETAS
+========================= */
+
+.cards{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+}
+
+.card{
+    background:rgba(255,255,255,.8);
+
+    border:1px solid #d8cef2;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    box-shadow:0 10px 30px rgba(84,62,150,.08);
+}
+
+.card-icon{
+    width:55px;
+    height:55px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:15px;
+
+    background:#e5defb;
+
+    font-size:27px;
+
+    margin-bottom:18px;
+}
+
+.card h3{
+    color:#523c99;
+
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#655b7c;
+}
+
+
+/* =========================
+   PROCESO
+========================= */
+
+.steps{
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:15px;
+}
+
+.step{
+    background:white;
+
+    border:1px solid #d9cff2;
+
+    border-radius:18px;
+
+    padding:22px;
+}
+
+.number{
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    background:#634bb0;
+
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+}
+
+
+/* =========================
+   EVIDENCIAS
+========================= */
+
+.evidence{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+}
+
+.photo{
+    height:210px;
+
+    border:2px dashed #b7a7e7;
+
+    border-radius:18px;
+
+    background:#f3efff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:#7667a1;
+
+    padding:15px;
+
+    font-family:Georgia,serif;
+}
+
+.photo span{
+    font-size:45px;
+
+    display:block;
+
+    margin-bottom:10px;
+}
+
+
+/* =========================
+   OPINIÓN
+========================= */
+
+.opinion{
+    background:#49368c;
+
+    color:white;
+
+    max-width:none !important;
+
+    padding-left:calc((100% - 1130px)/2) !important;
+    padding-right:calc((100% - 1130px)/2) !important;
+}
+
+.opinion h2{
+    color:white;
+}
+
+.opinion .section-title{
+    color:#d8ccff;
+}
+
+.opinion p{
+    font-family:Georgia,serif;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+}
+
+.quote{
+    border-left:4px solid #cfc1ff;
+
+    padding:15px 20px;
+
+    font-size:21px;
+
+    font-family:Georgia,serif;
+}
+
+
+/* =========================
+   CONCLUSIONES
+========================= */
+
+.conclusion{
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:15px;
+}
+
+.conclusion-item{
+    background:white;
+
+    border:1px solid #d8cef2;
+
+    border-radius:18px;
+
+    padding:22px;
+}
+
+.conclusion-item strong{
+    display:block;
+
+    color:#654daf;
+
+    font-size:20px;
+
+    margin-bottom:10px;
+}
+
+
+/* =========================
+   FUENTES
+========================= */
+
+.sources{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.source{
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    border:1px solid #d8cef2;
+}
+
+.source h3{
+    color:#503b96;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#39276f;
+
+    color:white;
+
+    padding:45px 25px;
+
+    text-align:center;
+}
+
+footer h2{
+    color:white;
+
+    font-size:28px;
+}
+
+footer p{
+    margin-top:8px;
+
+    color:#ddd4fa;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:950px){
+
+    .menu{
+        gap:15px;
+    }
+
+    .menu a{
+        font-size:13px;
+    }
+
+    .info-box{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .info:nth-child(2){
+        border-right:none;
+    }
+
+    .cards,
+    .evidence,
+    .sources{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .steps,
+    .conclusion{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+
+@media(max-width:650px){
+
+    header{
+        height:auto;
+    }
+
+    .navbar{
+        flex-direction:column;
+        padding:15px;
+        gap:15px;
+    }
+
+    .menu{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        min-height:auto;
+        padding-top:45px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .subtitle{
+        font-size:18px;
+    }
+
+    .info-box{
+        grid-template-columns:1fr;
+    }
+
+    .info{
+        border-right:none;
+        border-bottom:1px solid #d6ccf4;
+    }
+
+    .info:last-child{
+        border-bottom:none;
+    }
+
+    .cards,
+    .evidence,
+    .sources,
+    .steps,
+    .conclusion{
+        grid-template-columns:1fr;
+    }
+
+    h2{
+        font-size:36px;
+    }
+
+    section.content{
+        padding:70px 20px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     MENÚ
+========================= -->
+
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+    <span class="logo-icon">🍃</span>
+    NAVI-BIOREPEL
+</div>
+
+<div class="menu">
+
+<a href="#inicio">Inicio</a>
+
+<a href="#investigacion">Investigación</a>
+
+<a href="#materiales">Materiales</a>
+
+<a href="#evidencias">Evidencias</a>
+
+<a href="#producto">Producto</a>
+
+<a href="#opinion">Opinión</a>
+
+<a href="#conclusiones">Conclusiones</a>
+
+<a href="#fuentes">Fuentes</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================
+     INICIO
+========================= -->
+
+<section class="hero" id="inicio">
+
+<div class="blob-left"></div>
+<div class="blob-right"></div>
+
+<div class="curve left"></div>
+<div class="curve right"></div>
+
+<div class="leaves left">
+    🌿
+</div>
+
+<div class="leaves right">
+    🌿
+</div>
+
+
+<div class="hero-content">
+
+<h1>
+NAVI-BIOREPEL
+</h1>
+
+<div class="subtitle">
+
+Proyecto de investigación sobre la elaboración de un biorepelente natural a base de ingredientes de origen vegetal.
+
+</div>
+
+
+<!-- MOSQUITO -->
+
+<div class="mosquito-container">
+
+<div class="mosquito-circle"></div>
+
+<div class="mosquito">
+
+<div class="mosquito-head"></div>
+
+<div class="mosquito-body"></div>
+
+<div class="wing left"></div>
+<div class="wing right"></div>
+
+<div class="leg l1"></div>
+<div class="leg l2"></div>
+<div class="leg l3"></div>
+
+<div class="leg r1"></div>
+<div class="leg r2"></div>
+<div class="leg r3"></div>
+
+<div class="antenna a1"></div>
+<div class="antenna a2"></div>
+
+</div>
+
+<div class="no-symbol"></div>
+
+</div>
+
+
+<!-- INFORMACIÓN -->
+
+<div class="info-box">
+
+<div class="info">
+
+<div class="info-icon">🎓</div>
+
+<h3>
+Estudiante
+</h3>
+
+<p>
+Arelys Jimenez Vargas
+</p>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-icon">📚</div>
+
+<h3>
+Curso y paralelo
+</h3>
+
+<p>
+1ro BGU Foxtrot
+</p>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-icon">👨‍🏫</div>
+
+<h3>
+Docente responsable
+</h3>
+
+<p>
+Ricardo Villafuerte
+</p>
+
+</div>
+
+
+<div class="info">
+
+<div class="info-icon">📅</div>
+
+<h3>
+Fecha de realización
+</h3>
+
+<p>
+21 de septiembre de 2026
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     INVESTIGACIÓN
+========================= -->
+
+<section class="content" id="investigacion">
+
+<div class="section-title">
+Sección 01
+</div>
+
+<h2>
+¿Qué es el biorepelente?
+</h2>
+
+<p class="description">
+
+Un biorepelente es una sustancia de origen natural elaborada con componentes vegetales que busca ayudar a mantener alejados a determinados insectos.
+
+</p>
+
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-icon">🌿</div>
+
+<h3>
+Origen vegetal
+</h3>
+
+<p>
+Nuestra propuesta utiliza ingredientes como eucalipto y citronela para elaborar una alternativa de origen natural.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🦟</div>
+
+<h3>
+La problemática
+</h3>
+
+<p>
+Los mosquitos pueden transmitir enfermedades como el dengue y el Zika, por lo que la prevención es importante.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🌎</div>
+
+<h3>
+Nuestro objetivo
+</h3>
+
+<p>
+Promover el conocimiento de alternativas naturales y fomentar una relación más responsable con el ambiente.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     MATERIALES
+========================= -->
+
+<section class="content" id="materiales">
+
+<div class="section-title">
+Sección 02
+</div>
+
+<h2>
+Materiales del proyecto
+</h2>
+
+<p class="description">
+
+Para desarrollar nuestra propuesta se seleccionaron materiales sencillos relacionados con la preparación y presentación del biorepelente.
+
+</p>
+
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-icon">🌿</div>
+
+<h3>
+Hojas de eucalipto
+</h3>
+
+<p>
+Utilizadas para preparar la infusión concentrada que forma parte de la mezcla.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🍋</div>
+
+<h3>
+Aceite de citronela
+</h3>
+
+<p>
+Ingrediente vegetal utilizado por su aroma característico asociado con la repelencia de insectos.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🧴</div>
+
+<h3>
+Alcohol o agua destilada
+</h3>
+
+<p>
+Puede utilizarse según la formulación seleccionada para preparar el producto.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🌸</div>
+
+<h3>
+Clavos de olor
+</h3>
+
+<p>
+Ingrediente opcional considerado para complementar la preparación.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🧪</div>
+
+<h3>
+Recipiente de vidrio
+</h3>
+
+<p>
+Se utiliza para contener y mezclar los ingredientes durante la elaboración.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🧴</div>
+
+<h3>
+Atomizador
+</h3>
+
+<p>
+Envase destinado a facilitar la aplicación de la preparación.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PROCESO
+========================= -->
+
+<section class="content" id="proceso">
+
+<div class="section-title">
+Sección 03
+</div>
+
+<h2>
+Proceso de elaboración
+</h2>
+
+<p class="description">
+
+La elaboración se organiza en varios pasos para mantener un procedimiento ordenado y fácil de explicar.
+
+</p>
+
+
+<div class="steps">
+
+<div class="step">
+
+<div class="number">1</div>
+
+<h3>
+Infusión
+</h3>
+
+<p>
+Preparar una infusión concentrada con las hojas de eucalipto en agua caliente.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">2</div>
+
+<h3>
+Reposo
+</h3>
+
+<p>
+Dejar reposar la preparación hasta que alcance una temperatura adecuada.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">3</div>
+
+<h3>
+Filtrado
+</h3>
+
+<p>
+Pasar el líquido por un colador o gasa para retirar los restos vegetales.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">4</div>
+
+<h3>
+Mezcla
+</h3>
+
+<p>
+Agregar el aceite esencial de citronela y mezclar suavemente.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">5</div>
+
+<h3>
+Envasado
+</h3>
+
+<p>
+Colocar la preparación en el atomizador y añadir una etiqueta.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     EVIDENCIAS
+========================= -->
+
+<section class="content" id="evidencias">
+
+<div class="section-title">
+Sección 04
+</div>
+
+<h2>
+Nuestras evidencias
+</h2>
+
+<p class="description">
+
+Aquí puedes colocar fotografías reales relacionadas con tu proyecto. Por ejemplo, imágenes de la investigación, los materiales, la elaboración y el producto terminado.
+
+</p>
+
+
+<div class="evidence">
+
+<div>
+
+<div class="photo">
+
+<div>
+<span>📷</span>
+Investigación<br>
+Fotografía de la búsqueda de información.
+</div>
+
+</div>
+
+</div>
+
+
+<div>
+
+<div class="photo">
+
+<div>
+<span>🌿</span>
+Materiales<br>
+Fotografía de los ingredientes.
+</div>
+
+</div>
+
+</div>
+
+
+<div>
+
+<div class="photo">
+
+<div>
+<span>🧪</span>
+Elaboración<br>
+Fotografía del proceso.
+</div>
+
+</div>
+
+</div>
+
+
+<div>
+
+<div class="photo">
+
+<div>
+<span>🧴</span>
+Producto final<br>
+Fotografía del biorepelente terminado.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PRODUCTO
+========================= -->
+
+<section class="content" id="producto">
+
+<div class="section-title">
+Sección 05
+</div>
+
+<h2>
+Nuestro producto
+</h2>
+
+<p class="description">
+
+NAVI-BIOREPEL es una propuesta de biorepelente de origen vegetal desarrollada como parte de nuestro proyecto de investigación.
+
+</p>
+
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-icon">🧴</div>
+
+<h3>
+Presentación
+</h3>
+
+<p>
+El producto se plantea en un envase con atomizador para facilitar su aplicación.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🌱</div>
+
+<h3>
+Componentes
+</h3>
+
+<p>
+La preparación considera ingredientes como eucalipto y aceite esencial de citronela.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">💡</div>
+
+<h3>
+Propósito
+</h3>
+
+<p>
+Presentar una alternativa natural y promover el aprendizaje sobre prevención y cuidado ambiental.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     OPINIÓN
+========================= -->
+
+<section class="content opinion" id="opinion">
+
+<div class="section-title">
+Sección 06 · Artículo de opinión
+</div>
+
+<h2>
+Plantas que repelen, cuerpos que agradecen
+</h2>
+
+<p>
+
+Los repelentes naturales representan una alternativa interesante porque permiten conocer las propiedades de diferentes plantas y reflexionar sobre los productos que utilizamos diariamente.
+
+</p>
+
+<p>
+
+Desde nuestra experiencia como estudiantes, investigar ingredientes como el eucalipto y la citronela nos permitió comprender que elaborar un producto también requiere conocer sus componentes, su preparación y la manera responsable de utilizarlo.
+
+</p>
+
+<p>
+
+El cuidado de la salud y del ambiente puede relacionarse con pequeñas decisiones. Por eso consideramos importante investigar opciones de origen vegetal y compartir información que ayude a tomar decisiones responsables.
+
+</p>
+
+<div class="quote">
+
+“Plantas que repelen, cuerpos que agradecen: conocer lo que usamos también es una forma de cuidarnos.”
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     CONCLUSIONES
+========================= -->
+
+<section class="content" id="conclusiones">
+
+<div class="section-title">
+Sección 07
+</div>
+
+<h2>
+¿Qué aprendimos?
+</h2>
+
+<p class="description">
+
+El proyecto nos permitió relacionar investigación, elaboración y comunicación en una sola propuesta.
+
+</p>
+
+
+<div class="conclusion">
+
+<div class="conclusion-item">
+
+<strong>01</strong>
+
+Aprendimos a investigar información relacionada con los biorepelentes.
+
+</div>
+
+
+<div class="conclusion-item">
+
+<strong>02</strong>
+
+Reconocimos algunos ingredientes vegetales utilizados en este tipo de preparaciones.
+
+</div>
+
+
+<div class="conclusion-item">
+
+<strong>03</strong>
+
+Comprendimos la importancia de seguir un procedimiento ordenado.
+
+</div>
+
+
+<div class="conclusion-item">
+
+<strong>04</strong>
+
+Relacionamos la prevención de picaduras con el cuidado personal.
+
+</div>
+
+
+<div class="conclusion-item">
+
+<strong>05</strong>
+
+Valoramos la importancia de cuidar nuestro entorno.
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     FUENTES
+========================= -->
+
+<section class="content" id="fuentes">
+
+<div class="section-title">
+Sección 08
+</div>
+
+<h2>
+Fuentes consultadas
+</h2>
+
+<p class="description">
+
+La información del proyecto debe complementarse con fuentes confiables relacionadas con salud, prevención de picaduras y componentes naturales.
+
+</p>
+
+
+<div class="sources">
+
+<div class="source">
+
+<h3>
+Ministerio de Salud Pública del Ecuador
+</h3>
+
+<p>
+Información oficial relacionada con prevención y enfermedades transmitidas por mosquitos.
+</p>
+
+</div>
+
+
+<div class="source">
+
+<h3>
+Organización Panamericana de la Salud
+</h3>
+
+<p>
+Información sobre dengue, prevención y cuidado de la salud.
+</p>
+
+</div>
+
+
+<div class="source">
+
+<h3>
+Organización Mundial de la Salud
+</h3>
+
+<p>
+Información general sobre enfermedades transmitidas por vectores.
+</p>
+
+</div>
+
+
+<div class="source">
+
+<h3>
+Centros para el Control y la Prevención de Enfermedades
+</h3>
+
+<p>
+Información educativa sobre prevención de picaduras de mosquitos.
+</p>
+
+</div>
+
+
+<div class="source">
+
+<h3>
+Fuentes bibliográficas del proyecto
+</h3>
+
+<p>
+Aquí se pueden añadir las páginas, libros o artículos utilizados durante la investigación.
+</p>
+
+</div>
+
+
+<div class="source">
+
+<h3>
+Material de consulta
+</h3>
+
+<p>
+Espacio para agregar las fuentes adicionales utilizadas por la estudiante.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PIE DE PÁGINA
+========================= -->
+
+<footer>
+
+<h2>
+NAVI-BIOREPEL
+</h2>
+
+<p>
+Proyecto de investigación · 1ro BGU Foxtrot
+</p>
+
+<p>
+Arelys Jimenez Vargas · Docente: Ricardo Villafuerte
+</p>
+
+<p>
+21 de septiembre de 2026
+</p>
+
+</footer>
+
+
+</body>
+</html>
