@@ -7,7 +7,6 @@
 <title>NAVI-BIOREPEL</title>
 
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
 
 :root{
@@ -28,59 +27,56 @@
 }
 
 body{
-    font-family:'DM Sans',sans-serif;
+    font-family:'DM Sans', sans-serif;
     color:var(--texto);
     background:#f8f6ff;
     overflow-x:hidden;
 }
 
-
-/* ==================================
+/* =========================
    MENÚ SUPERIOR
-================================== */
+========================= */
 
 header{
     position:sticky;
     top:0;
     z-index:1000;
-    min-height:72px;
-    background:rgba(255,255,255,.95);
+    height:78px;
+    background:rgba(255,255,255,.94);
     backdrop-filter:blur(12px);
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:10px 5%;
+    padding:0 6%;
     box-shadow:0 3px 20px rgba(75,55,150,.08);
 }
 
 .logo{
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:12px;
     color:var(--morado);
-    font-size:22px;
+    font-size:23px;
     font-weight:800;
-    white-space:nowrap;
+    letter-spacing:.5px;
 }
 
 .logo-hoja{
-    font-size:29px;
+    font-size:31px;
 }
 
 nav{
     display:flex;
     align-items:center;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:3px;
+    gap:8px;
 }
 
 nav a{
     text-decoration:none;
     color:#5a4b9f;
-    font-size:13px;
+    font-size:14px;
     font-weight:700;
-    padding:10px 12px;
+    padding:12px 15px;
     border-radius:20px;
     transition:.3s;
 }
@@ -91,90 +87,29 @@ nav a:hover{
     transform:translateY(-2px);
 }
 
-
-/* ==================================
-   HERO
-================================== */
-
-.hero{
-    min-height:600px;
-    position:relative;
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            circle at 10% 20%,
-            #ddd4fb 0%,
-            transparent 24%
-        ),
-        radial-gradient(
-            circle at 92% 85%,
-            #d9d0fa 0%,
-            transparent 27%
-        ),
-        linear-gradient(
-            135deg,
-            #eeeaff,
-            #faf9ff 55%,
-            #eeeaff
-        );
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:80px 8%;
-}
-
-
-/* formas curvas */
-
-.hero::before{
-    content:"";
-    position:absolute;
-    width:380px;
-    height:650px;
-    left:-220px;
-    top:-120px;
-    background:#d6ccf8;
-    border-radius:50%;
-    transform:rotate(28deg);
-    opacity:.75;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:430px;
-    height:300px;
-    right:-170px;
-    bottom:-150px;
-    background:#d8cff8;
-    border-radius:50%;
-}
-
-
-/* decoración */
+/* =========================
+   DECORACIONES
+========================= */
 
 .decor{
     position:absolute;
     pointer-events:none;
-    z-index:1;
+    z-index:0;
 }
 
 .hoja1{
     top:0;
-    right:-10px;
+    right:-25px;
     font-size:110px;
-    opacity:.20;
+    opacity:.18;
     transform:rotate(-20deg);
 }
 
 .hoja2{
-    bottom:10px;
-    left:-30px;
+    bottom:20px;
+    left:-35px;
     font-size:120px;
-    opacity:.18;
+    opacity:.16;
     transform:rotate(25deg);
 }
 
@@ -185,30 +120,70 @@ nav a:hover{
     opacity:.3;
 }
 
+/* =========================
+   HERO
+========================= */
 
-/* contenido */
+.hero{
+    min-height:calc(100vh - 78px);
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 10% 20%, #ddd4fb 0%, transparent 24%),
+        radial-gradient(circle at 92% 85%, #d9d0fa 0%, transparent 27%),
+        linear-gradient(135deg,#eeeaff,#faf9ff 55%,#eeeaff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:70px 8%;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:380px;
+    height:650px;
+    left:-210px;
+    top:-100px;
+    background:#d6ccf8;
+    border-radius:50%;
+    transform:rotate(28deg);
+    opacity:.75;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:300px;
+    right:-160px;
+    bottom:-150px;
+    background:#d8cff8;
+    border-radius:50%;
+}
 
 .hero-content{
     position:relative;
-    z-index:3;
-    max-width:1050px;
+    z-index:2;
+    max-width:1100px;
 }
 
 .mini-title{
     color:#7764c9;
     font-weight:800;
-    font-size:14px;
+    font-size:15px;
     letter-spacing:3px;
     margin-bottom:18px;
     text-transform:uppercase;
 }
 
 .hero h1{
-    font-size:clamp(45px,6vw,76px);
+    font-size:clamp(45px,6vw,78px);
     line-height:1.02;
     color:var(--morado-oscuro);
     font-weight:800;
-    margin-bottom:25px;
+    margin-bottom:24px;
 }
 
 .hero h1 span{
@@ -218,54 +193,34 @@ nav a:hover{
 .hero p{
     max-width:780px;
     margin:auto;
-
     font-family:'Playfair Display',serif;
-
-    font-size:20px;
+    font-size:21px;
     line-height:1.7;
-
     color:#6659a0;
 }
 
-
-/* mosquito */
-
 .mosquito{
     margin:35px auto 25px;
-
     width:145px;
     height:145px;
-
     border:10px solid #b9aceb;
-
     border-radius:50%;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
-    font-size:65px;
-
+    font-size:68px;
     position:relative;
-
-    background:rgba(255,255,255,.4);
+    background:rgba(255,255,255,.35);
 }
 
 .mosquito::after{
     content:"";
-
     position:absolute;
-
     width:180px;
     height:180px;
-
     border:2px solid #c8bdf1;
-
     border-radius:50%;
 }
-
-
-/* hojas flotantes */
 
 .floating-leaves{
     position:absolute;
@@ -284,32 +239,21 @@ nav a:hover{
     transform:rotate(-20deg);
 }
 
-
-/* ==================================
-   DATOS DEL PROYECTO
-================================== */
+/* =========================
+   DATOS
+========================= */
 
 .info-card{
     position:relative;
     z-index:5;
-
-    max-width:1080px;
-
-    margin:-70px auto 70px;
-
-    background:rgba(255,255,255,.88);
-
+    max-width:1050px;
+    margin:-95px auto 70px;
+    background:rgba(255,255,255,.8);
     border:1px solid #d7cff5;
-
     border-radius:28px;
-
-    box-shadow:
-        0 15px 50px rgba(72,53,145,.12);
-
+    box-shadow:0 15px 50px rgba(72,53,145,.12);
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     overflow:hidden;
 }
 
@@ -326,17 +270,12 @@ nav a:hover{
 .info-icon{
     width:55px;
     height:55px;
-
     margin:0 auto 15px;
-
     border-radius:50%;
-
     background:#e8e1ff;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     font-size:25px;
 }
 
@@ -352,10 +291,9 @@ nav a:hover{
     line-height:1.5;
 }
 
-
-/* ==================================
+/* =========================
    SECCIONES
-================================== */
+========================= */
 
 section{
     position:relative;
@@ -370,11 +308,8 @@ section{
 
 .section-title small{
     color:#806bd0;
-
     font-weight:800;
-
     text-transform:uppercase;
-
     letter-spacing:3px;
 }
 
@@ -391,10 +326,9 @@ section{
     line-height:1.7;
 }
 
-
-/* ==================================
+/* =========================
    INVESTIGACIÓN
-================================== */
+========================= */
 
 .investigacion{
     background:white;
@@ -403,42 +337,23 @@ section{
 .cards{
     max-width:1100px;
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:25px;
 }
 
 .card{
-    background:
-        linear-gradient(
-            145deg,
-            #fff,
-            #f2efff
-        );
-
+    background:linear-gradient(145deg,#fff,#f2efff);
     padding:32px;
-
     border:1px solid #e0daf7;
-
     border-radius:25px;
-
-    box-shadow:
-        0 10px 30px
-        rgba(80,61,150,.08);
-
+    box-shadow:0 10px 30px rgba(80,61,150,.08);
     transition:.3s;
 }
 
 .card:hover{
     transform:translateY(-8px);
-
-    box-shadow:
-        0 18px 35px
-        rgba(80,61,150,.14);
+    box-shadow:0 18px 35px rgba(80,61,150,.14);
 }
 
 .card-icon{
@@ -457,10 +372,9 @@ section{
     line-height:1.7;
 }
 
-
-/* ==================================
+/* =========================
    MATERIALES
-================================== */
+========================= */
 
 .materiales{
     background:#f1edff;
@@ -469,22 +383,15 @@ section{
 .material-grid{
     max-width:1050px;
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
+    grid-template-columns:1fr 1fr;
     gap:30px;
 }
 
 .material-box{
     background:white;
-
     border-radius:28px;
-
     padding:35px;
-
     border:1px solid #ded6f7;
 }
 
@@ -500,34 +407,22 @@ section{
 
 .material-box li{
     padding:13px 0;
-
-    border-bottom:
-        1px solid #eeeafa;
-
+    border-bottom:1px solid #eeeafa;
     color:#665d91;
 }
 
 .material-box li::before{
     content:"✦";
-
     color:#806bd0;
-
     margin-right:10px;
 }
 
-
-/* ==================================
+/* =========================
    PROCESO
-================================== */
+========================= */
 
-.process-title{
-    color:#5541a5;
-    font-size:28px;
-
-    text-align:center;
-
-    margin-top:70px;
-    margin-bottom:30px;
+.proceso{
+    background:white;
 }
 
 .steps{
@@ -537,38 +432,24 @@ section{
 
 .step{
     display:flex;
-
     align-items:flex-start;
-
     gap:25px;
-
     background:#f5f2ff;
-
     padding:25px;
-
     border-radius:22px;
-
     margin-bottom:18px;
-
     border:1px solid #e0daf7;
 }
 
 .step-number{
     min-width:50px;
     height:50px;
-
     border-radius:50%;
-
     background:#705ac5;
-
     color:white;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     font-weight:800;
 }
 
@@ -582,10 +463,9 @@ section{
     line-height:1.6;
 }
 
-
-/* ==================================
+/* =========================
    EVIDENCIAS
-================================== */
+========================= */
 
 .evidencias{
     background:#f1edff;
@@ -594,159 +474,85 @@ section{
 .gallery{
     max-width:1100px;
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:25px;
 }
 
 .photo{
     background:white;
-
     padding:12px;
-
     border-radius:25px;
-
-    box-shadow:
-        0 12px 30px
-        rgba(75,55,145,.12);
-
+    box-shadow:0 12px 30px rgba(75,55,145,.12);
     border:1px solid #ddd6f7;
 }
 
 .photo img{
     width:100%;
-
     height:330px;
-
     object-fit:cover;
-
     border-radius:17px;
-
     display:block;
 }
 
 .photo p{
     text-align:center;
-
     padding:15px 5px 8px;
-
     color:#625797;
-
     font-weight:700;
 }
 
-
-/* ==================================
+/* =========================
    PRODUCTO
-================================== */
+========================= */
 
 .producto{
     background:white;
 }
 
 .product-card{
-    max-width:1000px;
-
+    max-width:900px;
     margin:auto;
-
-    background:
-        linear-gradient(
-            135deg,
-            #eee9ff,
-            #faf9ff
-        );
-
+    background:linear-gradient(135deg,#eee9ff,#faf9ff);
     border:1px solid #d9d1f5;
-
     border-radius:35px;
-
-    padding:35px;
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:35px;
-
-    align-items:center;
-
-    box-shadow:
-        0 15px 40px
-        rgba(75,55,145,.10);
+    padding:55px;
+    text-align:center;
 }
-
-
-/* imagen del producto */
 
 .product-image{
-    background:white;
-
-    padding:12px;
-
-    border-radius:25px;
-
-    border:1px solid #ddd6f7;
-
-    box-shadow:
-        0 10px 25px
-        rgba(75,55,145,.10);
-}
-
-.product-image img{
     width:100%;
-
-    height:430px;
-
+    max-width:600px;
+    height:350px;
     object-fit:cover;
-
+    border-radius:25px;
+    margin:0 auto 30px;
     display:block;
-
-    border-radius:18px;
+    box-shadow:0 12px 30px rgba(75,55,145,.15);
+    border:5px solid white;
 }
 
-.product-info{
-    padding:25px;
+.product-icon{
+    font-size:75px;
+    margin-bottom:20px;
 }
 
-.product-info h3{
+.product-card h3{
     color:#523ea1;
-
     font-size:32px;
-
-    margin-bottom:18px;
+    margin-bottom:15px;
 }
 
-.product-info p{
+.product-card p{
     color:#6c6394;
-
     line-height:1.8;
+    max-width:700px;
+    margin:auto;
 }
 
-.product-tag{
-    display:inline-block;
-
-    margin-top:25px;
-
-    padding:12px 20px;
-
-    border-radius:30px;
-
-    background:#e5defd;
-
-    color:#5845aa;
-
-    font-weight:800;
-}
-
-
-/* ==================================
+/* =========================
    OPINIÓN
-================================== */
+========================= */
 
 .opinion{
     background:#f1edff;
@@ -754,44 +560,30 @@ section{
 
 .opinion-box{
     max-width:900px;
-
     margin:auto;
-
     background:white;
-
     border-radius:30px;
-
     padding:50px;
-
     border:1px solid #ded7f6;
-
-    box-shadow:
-        0 12px 35px
-        rgba(75,55,145,.08);
+    box-shadow:0 12px 35px rgba(75,55,145,.08);
 }
 
 .opinion-box h3{
     font-family:'Playfair Display',serif;
-
     color:#523e9d;
-
     font-size:32px;
-
     margin-bottom:25px;
 }
 
 .opinion-box p{
     color:#696192;
-
     line-height:1.9;
-
     margin-bottom:18px;
 }
 
-
-/* ==================================
+/* =========================
    CONCLUSIONES
-================================== */
+========================= */
 
 .conclusiones{
     background:white;
@@ -804,19 +596,12 @@ section{
 
 .conclusion{
     display:flex;
-
     gap:20px;
-
     padding:25px;
-
     margin-bottom:17px;
-
     border-radius:20px;
-
     background:#f5f2ff;
-
-    border-left:
-        5px solid #765fc9;
+    border-left:5px solid #765fc9;
 }
 
 .conclusion span{
@@ -825,14 +610,12 @@ section{
 
 .conclusion p{
     color:#68608e;
-
     line-height:1.7;
 }
 
-
-/* ==================================
+/* =========================
    FUENTES
-================================== */
+========================= */
 
 .fuentes{
     background:#f1edff;
@@ -845,81 +628,67 @@ section{
 
 .source{
     background:white;
-
     padding:25px 30px;
-
     border-radius:20px;
-
     margin-bottom:15px;
-
     border:1px solid #ded7f5;
 }
 
 .source h3{
     color:#5642a4;
-
     margin-bottom:7px;
 }
 
 .source p{
     color:#706797;
-
-    line-height:1.6;
 }
 
-
-/* ==================================
+/* =========================
    FOOTER
-================================== */
+========================= */
 
 footer{
     background:#4d3b98;
-
     color:white;
-
     text-align:center;
-
     padding:35px 20px;
 }
 
 footer h2{
     font-size:25px;
-
     margin-bottom:8px;
 }
 
 footer p{
     opacity:.8;
-
-    margin-top:5px;
 }
 
-
-/* ==================================
+/* =========================
    RESPONSIVE
-================================== */
+========================= */
 
-@media(max-width:1100px){
+@media(max-width:1000px){
 
     header{
+        height:auto;
+        padding:15px 4%;
         flex-direction:column;
+        gap:10px;
+    }
 
-        gap:8px;
-
-        padding:14px 3%;
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
     }
 
     nav a{
         font-size:12px;
-
-        padding:8px 9px;
+        padding:8px 10px;
     }
 
     .info-card{
         margin:30px 5%;
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .info-box:nth-child(2){
@@ -931,14 +700,11 @@ footer p{
     }
 }
 
-
 @media(max-width:700px){
 
     .hero{
-        min-height:700px;
-
-        padding:
-            50px 6%;
+        min-height:750px;
+        padding:50px 6%;
     }
 
     .hero h1{
@@ -955,46 +721,20 @@ footer p{
 
     .info-box{
         border-right:none;
-
-        border-bottom:
-            1px solid #ddd6f5;
+        border-bottom:1px solid #ddd6f5;
     }
 
     .info-box:last-child{
         border-bottom:none;
     }
 
-    .material-grid{
-        grid-template-columns:1fr;
-    }
-
+    .material-grid,
     .gallery{
         grid-template-columns:1fr;
     }
 
-    .product-card{
-        grid-template-columns:1fr;
-
-        padding:20px;
-    }
-
-    .product-image img{
-        height:320px;
-    }
-
-    .product-info{
-        padding:10px;
-
-        text-align:center;
-    }
-
-    .opinion-box{
-        padding:30px 22px;
-    }
-
     section{
-        padding:
-            75px 6%;
+        padding:75px 6%;
     }
 
     .section-title h2{
@@ -1005,985 +745,512 @@ footer p{
         height:250px;
     }
 
-    .step{
-        gap:15px;
+    .product-image{
+        height:250px;
     }
 
-    nav{
-        gap:1px;
-    }
-
-    nav a{
-        font-size:11px;
-
-        padding:
-            7px 8px;
+    .opinion-box,
+    .product-card{
+        padding:30px 22px;
     }
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- ==================================
-     MENÚ SUPERIOR
-================================== -->
+<!-- =========================
+     MENÚ
+========================= -->
 
 <header>
 
     <div class="logo">
-
-        <span class="logo-hoja">
-            🍃
-        </span>
-
+        <span class="logo-hoja">🍃</span>
         NAVI-BIOREPEL
-
     </div>
 
-
     <nav>
-
-        <a href="#inicio">
-            Inicio
-        </a>
-
-        <a href="#investigacion">
-            Investigación
-        </a>
-
-        <a href="#materiales">
-            Materiales
-        </a>
-
-        <a href="#evidencias">
-            Evidencias
-        </a>
-
-        <a href="#producto">
-            Producto
-        </a>
-
-        <a href="#opinion">
-            Opinión
-        </a>
-
-        <a href="#conclusiones">
-            Conclusiones
-        </a>
-
-        <a href="#fuentes">
-            Fuentes
-        </a>
-
+        <a href="#inicio">Inicio</a>
+        <a href="#investigacion">Investigación</a>
+        <a href="#materiales">Materiales</a>
+        <a href="#evidencias">Evidencias</a>
+        <a href="#producto">Producto</a>
+        <a href="#opinion">Opinión</a>
+        <a href="#conclusiones">Conclusiones</a>
+        <a href="#fuentes">Fuentes</a>
     </nav>
 
 </header>
 
 
-
-<!-- ==================================
+<!-- =========================
      INICIO
-================================== -->
+========================= -->
 
 <section class="hero" id="inicio">
 
-
-    <div class="decor hoja1">
-        🌿
-    </div>
-
-
-    <div class="decor hoja2">
-        🌿
-    </div>
-
+    <div class="decor hoja1">🌿</div>
+    <div class="decor hoja2">🌿</div>
 
     <div class="hero-content">
-
 
         <div class="mini-title">
             Proyecto de investigación
         </div>
 
-
         <h1>
-
-            NAVI-BIOREPEL
-
-            <br>
-
-            <span>Biorepelente natural</span>
-
+            Uso adecuado del<br>
+            <span>biorepelente natural</span>
         </h1>
 
-
         <p>
-
-            Una propuesta escolar orientada a explorar
-            alternativas de origen vegetal para ayudar
-            a repeler mosquitos y promover prácticas
-            responsables con el ambiente.
-
+            Una propuesta escolar orientada a explorar alternativas
+            de origen vegetal para ayudar a repeler mosquitos
+            y promover prácticas responsables con el ambiente.
         </p>
-
 
         <div class="mosquito">
             🦟
         </div>
 
-
         <div class="floating-leaves leaf-left">
             🌿
         </div>
-
 
         <div class="floating-leaves leaf-right">
             🍃
         </div>
 
-
     </div>
 
 </section>
 
 
-
-<!-- ==================================
+<!-- =========================
      DATOS DEL PROYECTO
-================================== -->
+========================= -->
 
 <div class="info-card">
 
-
     <div class="info-box">
-
-        <div class="info-icon">
-            🎓
-        </div>
-
-        <h3>
-            Estudiante
-        </h3>
-
-        <p>
-            Arelys Jimenez Vargas
-        </p>
-
+        <div class="info-icon">🎓</div>
+        <h3>Estudiante</h3>
+        <p>Arelys Jimenez Vargas</p>
     </div>
 
-
     <div class="info-box">
-
-        <div class="info-icon">
-            📚
-        </div>
-
-        <h3>
-            Curso y paralelo
-        </h3>
-
-        <p>
-            1ro BGU Foxtrot
-        </p>
-
+        <div class="info-icon">📚</div>
+        <h3>Curso y paralelo</h3>
+        <p>1ro BGU Foxtrot</p>
     </div>
 
-
     <div class="info-box">
-
-        <div class="info-icon">
-            👨‍🏫
-        </div>
-
-        <h3>
-            Docente responsable
-        </h3>
-
-        <p>
-            Ricardo Villafuerte
-        </p>
-
+        <div class="info-icon">👨‍🏫</div>
+        <h3>Docente responsable</h3>
+        <p>Ricardo Villafuerte</p>
     </div>
 
-
     <div class="info-box">
-
-        <div class="info-icon">
-            📅
-        </div>
-
-        <h3>
-            Fecha de realización
-        </h3>
-
-        <p>
-            21 de septiembre de 2026
-        </p>
-
+        <div class="info-icon">📅</div>
+        <h3>Fecha de realización</h3>
+        <p>21 de septiembre de 2026</p>
     </div>
-
 
 </div>
 
 
-
-<!-- ==================================
+<!-- =========================
      INVESTIGACIÓN
-================================== -->
+========================= -->
 
-<section
-    class="investigacion"
-    id="investigacion"
->
-
+<section class="investigacion" id="investigacion">
 
     <div class="section-title">
-
-        <small>
-            01 · Investigación
-        </small>
-
-        <h2>
-            ¿Qué es un biorepelente?
-        </h2>
-
+        <small>01 · Investigación</small>
+        <h2>¿Qué es un biorepelente?</h2>
         <p>
-            Información principal que fundamenta
+            Conoce la información principal que fundamenta
             nuestro proyecto.
         </p>
-
     </div>
-
 
     <div class="cards">
 
-
         <div class="card">
-
-            <div class="card-icon">
-                🌿
-            </div>
-
-            <h3>
-                Definición
-            </h3>
-
+            <div class="card-icon">🌿</div>
+            <h3>Definición</h3>
             <p>
-
-                Un biorepelente es una preparación
-                que utiliza sustancias de origen vegetal
-                que pueden ayudar a repeler determinados
-                insectos.
-
+                Un biorepelente es una preparación que utiliza
+                sustancias de origen vegetal que pueden ayudar
+                a repeler determinados insectos.
             </p>
-
         </div>
 
-
         <div class="card">
-
-            <div class="card-icon">
-                🦟
-            </div>
-
-            <h3>
-                Problemática
-            </h3>
-
+            <div class="card-icon">🦟</div>
+            <h3>Problemática</h3>
             <p>
-
-                Los mosquitos pueden transmitir
-                enfermedades, por lo que es importante
-                conocer diferentes medidas para reducir
-                el contacto con ellos.
-
+                Los mosquitos pueden transmitir enfermedades,
+                por lo que es importante conocer diferentes
+                medidas para reducir el contacto con ellos.
             </p>
-
         </div>
 
-
         <div class="card">
-
-            <div class="card-icon">
-                🌎
-            </div>
-
-            <h3>
-                Objetivo
-            </h3>
-
+            <div class="card-icon">🌎</div>
+            <h3>Objetivo</h3>
             <p>
-
-                Explorar una alternativa de preparación
-                sencilla basada en ingredientes de origen
-                vegetal y promover el cuidado responsable
-                del entorno.
-
+                Explorar una alternativa de preparación sencilla
+                basada en ingredientes de origen vegetal y
+                promover el cuidado responsable del entorno.
             </p>
-
         </div>
-
 
     </div>
 
 </section>
 
 
-
-<!-- ==================================
+<!-- =========================
      MATERIALES
-================================== -->
+========================= -->
 
-<section
-    class="materiales"
-    id="materiales"
->
-
+<section class="materiales" id="materiales">
 
     <div class="section-title">
-
-        <small>
-            02 · Materiales
-        </small>
-
-        <h2>
-            ¿Qué necesitamos?
-        </h2>
-
+        <small>02 · Materiales</small>
+        <h2>¿Qué necesitamos?</h2>
         <p>
-            Elementos utilizados para elaborar
-            el biorepelente.
+            Elementos utilizados para elaborar el biorepelente.
         </p>
-
     </div>
-
 
     <div class="material-grid">
 
-
         <div class="material-box">
 
-            <h3>
-                🌿 Ingredientes
-            </h3>
+            <h3>🌿 Ingredientes</h3>
 
             <ul>
-
-                <li>
-                    Hojas de eucalipto
-                </li>
-
-                <li>
-                    Aceite esencial de citronela
-                </li>
-
-                <li>
-                    Agua
-                </li>
-
-                <li>
-                    Clavos de olor (opcional)
-                </li>
-
+                <li>Hojas de eucalipto</li>
+                <li>Aceite esencial de citronela</li>
+                <li>Agua</li>
+                <li>Clavos de olor (opcional)</li>
             </ul>
 
         </div>
 
-
         <div class="material-box">
 
-            <h3>
-                🧪 Materiales
-            </h3>
+            <h3>🧪 Materiales</h3>
 
             <ul>
-
-                <li>
-                    Frasco de vidrio
-                </li>
-
-                <li>
-                    Botella con atomizador
-                </li>
-
-                <li>
-                    Colador o gasa
-                </li>
-
-                <li>
-                    Cuchara de madera
-                </li>
-
+                <li>Frasco de vidrio</li>
+                <li>Botella con atomizador</li>
+                <li>Colador o gasa</li>
+                <li>Cuchara de madera</li>
             </ul>
 
         </div>
-
 
     </div>
 
+</section>
 
 
-    <!-- PROCESO DENTRO DE MATERIALES -->
+<!-- =========================
+     PROCESO
+========================= -->
 
-    <h3 class="process-title">
-        🌿 Proceso de elaboración
-    </h3>
+<section class="proceso">
 
+    <div class="section-title">
+        <small>Proceso</small>
+        <h2>Elaboración paso a paso</h2>
+        <p>
+            Procedimiento utilizado para preparar el producto.
+        </p>
+    </div>
 
     <div class="steps">
 
-
         <div class="step">
-
-            <div class="step-number">
-                1
-            </div>
-
+            <div class="step-number">1</div>
             <div>
-
-                <h3>
-                    Preparar la infusión
-                </h3>
-
+                <h3>Preparar la infusión</h3>
                 <p>
-
-                    Colocar las hojas de eucalipto
-                    en agua caliente para obtener
-                    una preparación concentrada.
-
+                    Colocar las hojas de eucalipto en agua caliente
+                    para obtener una preparación concentrada.
                 </p>
-
             </div>
-
         </div>
 
-
         <div class="step">
-
-            <div class="step-number">
-                2
-            </div>
-
+            <div class="step-number">2</div>
             <div>
-
-                <h3>
-                    Dejar reposar
-                </h3>
-
+                <h3>Dejar reposar</h3>
                 <p>
-
-                    Permitir que la preparación
-                    se enfríe y repose antes de
-                    continuar con el procedimiento.
-
+                    Permitir que la preparación se enfríe y repose
+                    antes de continuar con el procedimiento.
                 </p>
-
             </div>
-
         </div>
 
-
         <div class="step">
-
-            <div class="step-number">
-                3
-            </div>
-
+            <div class="step-number">3</div>
             <div>
-
-                <h3>
-                    Filtrar
-                </h3>
-
+                <h3>Filtrar</h3>
                 <p>
-
-                    Colar la preparación para retirar
-                    los restos de las hojas.
-
+                    Colar la preparación para retirar los restos
+                    de las hojas.
                 </p>
-
             </div>
-
         </div>
 
-
         <div class="step">
-
-            <div class="step-number">
-                4
-            </div>
-
+            <div class="step-number">4</div>
             <div>
-
-                <h3>
-                    Agregar citronela
-                </h3>
-
+                <h3>Agregar citronela</h3>
                 <p>
-
-                    Añadir el aceite esencial de
-                    citronela y mezclar cuidadosamente.
-
+                    Añadir el aceite esencial de citronela y
+                    mezclar cuidadosamente.
                 </p>
-
             </div>
-
         </div>
 
-
         <div class="step">
-
-            <div class="step-number">
-                5
-            </div>
-
+            <div class="step-number">5</div>
             <div>
-
-                <h3>
-                    Envasar
-                </h3>
-
+                <h3>Envasar</h3>
                 <p>
-
-                    Colocar la preparación en un
-                    atomizador, etiquetarlo correctamente
-                    y conservarlo de forma adecuada.
-
+                    Colocar la preparación en un atomizador,
+                    etiquetarlo correctamente y conservarlo
+                    de forma adecuada.
                 </p>
-
             </div>
-
         </div>
-
 
     </div>
 
 </section>
 
 
-
-<!-- ==================================
+<!-- =========================
      EVIDENCIAS
-================================== -->
+========================= -->
 
-<section
-    class="evidencias"
-    id="evidencias"
->
-
+<section class="evidencias" id="evidencias">
 
     <div class="section-title">
-
-        <small>
-            03 · Evidencias
-        </small>
-
-        <h2>
-            Proceso del proyecto
-        </h2>
-
+        <small>03 · Evidencias</small>
+        <h2>Proceso del proyecto</h2>
         <p>
             Registro fotográfico de las actividades realizadas.
         </p>
-
     </div>
-
 
     <div class="gallery">
 
-
         <div class="photo">
-
-            <img
-                src="imagenes/evidencia1.jpeg"
-                alt="Evidencia 1"
-            >
-
-            <p>
-                Evidencia 1
-            </p>
-
+            <img src="evidencia1.jpeg"
+                 alt="Evidencia 1">
+            <p>Evidencia 1</p>
         </div>
 
-
         <div class="photo">
-
-            <img
-                src="imagenes/evidencia2.jpeg"
-                alt="Evidencia 2"
-            >
-
-            <p>
-                Evidencia 2
-            </p>
-
+            <img src="evidencia2.jpeg"
+                 alt="Evidencia 2">
+            <p>Evidencia 2</p>
         </div>
 
-
         <div class="photo">
-
-            <img
-                src="imagenes/evidencia3.jpeg"
-                alt="Evidencia 3"
-            >
-
-            <p>
-                Evidencia 3
-            </p>
-
+            <img src="evidencia3.jpeg"
+                 alt="Evidencia 3">
+            <p>Evidencia 3</p>
         </div>
 
-
         <div class="photo">
-
-            <img
-                src="imagenes/evidencia4.jpeg"
-                alt="Evidencia 4"
-            >
-
-            <p>
-                Evidencia 4 · Producto elaborado
-            </p>
-
+            <img src="evidencia4.jpeg"
+                 alt="Evidencia 4">
+            <p>Evidencia 4</p>
         </div>
-
 
     </div>
 
 </section>
 
 
-
-<!-- ==================================
+<!-- =========================
      PRODUCTO
-================================== -->
+========================= -->
 
-<section
-    class="producto"
-    id="producto"
->
-
+<section class="producto" id="producto">
 
     <div class="section-title">
-
-        <small>
-            04 · Producto
-        </small>
-
-        <h2>
-            NAVI-BIOREPEL
-        </h2>
-
-        <p>
-            Presentación del biorepelente elaborado
-            durante el proyecto.
-        </p>
-
+        <small>04 · Producto</small>
+        <h2>NAVI-BIOREPEL</h2>
     </div>
-
 
     <div class="product-card">
 
+        <!-- EVIDENCIA 4 TAMBIÉN SE MUESTRA AQUÍ -->
+        <img class="product-image"
+             src="evidencia4.jpeg"
+             alt="Producto NAVI-BIOREPEL">
 
-        <!-- EVIDENCIA 4 -->
+        <div class="product-icon">🌿🦟</div>
 
-        <div class="product-image">
+        <h3>Biorepelente natural</h3>
 
-            <img
-                src="imagenes/evidencia4.jpeg"
-                alt="Producto NAVI-BIOREPEL"
-            >
-
-        </div>
-
-
-        <div class="product-info">
-
-            <h3>
-                Biorepelente natural
-            </h3>
-
-
-            <p>
-
-                El producto elaborado consiste en
-                una preparación basada en ingredientes
-                de origen vegetal, presentada en un
-                envase con atomizador para facilitar
-                su aplicación.
-
-            </p>
-
-
-            <div class="product-tag">
-
-                🌿 NAVI-BIOREPEL
-
-            </div>
-
-        </div>
-
+        <p>
+            El producto elaborado consiste en una preparación
+            basada en ingredientes de origen vegetal, presentada
+            en un envase con atomizador para facilitar su aplicación.
+        </p>
 
     </div>
 
 </section>
 
 
-
-<!-- ==================================
+<!-- =========================
      OPINIÓN
-================================== -->
+========================= -->
 
-<section
-    class="opinion"
-    id="opinion"
->
-
+<section class="opinion" id="opinion">
 
     <div class="section-title">
-
-        <small>
-            05 · Artículo de opinión
-        </small>
-
-        <h2>
-            Plantas que repelen,
-            cuerpos que agradecen
-        </h2>
-
+        <small>05 · Artículo de opinión</small>
+        <h2>Plantas que repelen, cuerpos que agradecen</h2>
     </div>
-
 
     <div class="opinion-box">
 
-
-        <h3>
-            Una alternativa que invita a reflexionar
-        </h3>
-
+        <h3>Una alternativa que invita a reflexionar</h3>
 
         <p>
-
-            Los productos utilizados para repeler
-            insectos forman parte de la vida cotidiana,
-            especialmente en lugares donde los mosquitos
-            son frecuentes.
-
+            Los productos utilizados para repeler insectos forman
+            parte de la vida cotidiana, especialmente en lugares
+            donde los mosquitos son frecuentes.
         </p>
 
-
         <p>
-
-            Investigar alternativas elaboradas con
-            ingredientes vegetales permite conocer
-            otras posibilidades y, al mismo tiempo,
-            reflexionar sobre la importancia de utilizar
-            los productos de manera responsable.
-
+            Investigar alternativas elaboradas con ingredientes
+            vegetales permite conocer otras posibilidades y,
+            al mismo tiempo, reflexionar sobre la importancia de
+            utilizar los productos de manera responsable.
         </p>
 
-
         <p>
-
-            La preparación de un biorepelente también
-            representa una oportunidad educativa,
-            ya que permite relacionar conocimientos
-            científicos, cuidado personal y
+            La preparación de un biorepelente también representa
+            una oportunidad educativa, ya que permite relacionar
+            conocimientos científicos, cuidado personal y
             responsabilidad ambiental.
-
         </p>
-
 
     </div>
 
 </section>
 
 
-
-<!-- ==================================
+<!-- =========================
      CONCLUSIONES
-================================== -->
+========================= -->
 
-<section
-    class="conclusiones"
-    id="conclusiones"
->
-
+<section class="conclusiones" id="conclusiones">
 
     <div class="section-title">
-
-        <small>
-            06 · Conclusiones
-        </small>
-
-        <h2>
-            Lo que aprendimos
-        </h2>
-
+        <small>06 · Conclusiones</small>
+        <h2>Lo que aprendimos</h2>
     </div>
-
 
     <div class="conclusion-list">
 
-
         <div class="conclusion">
-
-            <span>
-                🌿
-            </span>
-
+            <span>🌿</span>
             <p>
-
-                Los ingredientes de origen vegetal
-                pueden formar parte de preparaciones
-                destinadas a repeler determinados
-                insectos.
-
+                Los ingredientes de origen vegetal pueden formar
+                parte de preparaciones destinadas a repeler
+                determinados insectos.
             </p>
-
         </div>
 
-
         <div class="conclusion">
-
-            <span>
-                🔬
-            </span>
-
+            <span>🔬</span>
             <p>
-
-                El proyecto permitió aplicar conocimientos
-                de investigación y seguir un procedimiento
-                ordenado para elaborar el producto.
-
+                El proyecto permitió aplicar conocimientos de
+                investigación y seguir un procedimiento ordenado
+                para elaborar el producto.
             </p>
-
         </div>
 
-
         <div class="conclusion">
-
-            <span>
-                🌎
-            </span>
-
+            <span>🌎</span>
             <p>
-
-                También permitió reflexionar sobre la
-                importancia de buscar alternativas y
-                utilizar cualquier producto de manera
-                responsable.
-
+                También permitió reflexionar sobre la importancia
+                de buscar alternativas y utilizar cualquier producto
+                de manera responsable.
             </p>
-
         </div>
-
 
     </div>
 
 </section>
 
 
-
-<!-- ==================================
+<!-- =========================
      FUENTES
-================================== -->
+========================= -->
 
-<section
-    class="fuentes"
-    id="fuentes"
->
-
+<section class="fuentes" id="fuentes">
 
     <div class="section-title">
-
-        <small>
-            07 · Fuentes
-        </small>
-
-        <h2>
-            Información consultada
-        </h2>
-
+        <small>07 · Fuentes</small>
+        <h2>Información consultada</h2>
         <p>
-            Fuentes utilizadas como referencia
-            para la investigación.
+            Fuentes utilizadas como referencia para la investigación.
         </p>
-
     </div>
-
 
     <div class="sources">
 
-
         <div class="source">
-
-            <h3>
-                Organización Panamericana de la Salud
-            </h3>
-
+            <h3>Organización Panamericana de la Salud</h3>
             <p>
-
-                Información relacionada con la prevención
-                y control de enfermedades transmitidas
-                por mosquitos.
-
+                Información relacionada con la prevención y
+                control de enfermedades transmitidas por mosquitos.
             </p>
-
         </div>
 
-
         <div class="source">
-
-            <h3>
-                Ministerio de Salud Pública del Ecuador
-            </h3>
-
+            <h3>Ministerio de Salud Pública del Ecuador</h3>
             <p>
-
-                Información sobre prevención de
-                enfermedades transmitidas por vectores.
-
+                Información sobre prevención de enfermedades
+                transmitidas por vectores.
             </p>
-
         </div>
 
-
         <div class="source">
-
-            <h3>
-                Centers for Disease Control and Prevention
-            </h3>
-
+            <h3>Centers for Disease Control and Prevention</h3>
             <p>
-
-                Información educativa sobre mosquitos
-                y medidas para reducir las picaduras.
-
+                Información educativa sobre mosquitos y medidas
+                para reducir las picaduras.
             </p>
-
         </div>
-
 
     </div>
 
 </section>
 
 
-
-<!-- ==================================
+<!-- =========================
      PIE DE PÁGINA
-================================== -->
+========================= -->
 
 <footer>
 
-    <h2>
-        🍃 NAVI-BIOREPEL
-    </h2>
+    <h2>🍃 NAVI-BIOREPEL</h2>
 
     <p>
         Proyecto de investigación · 1ro BGU Foxtrot
@@ -1994,7 +1261,6 @@ footer p{
     </p>
 
 </footer>
-
 
 </body>
 </html>
